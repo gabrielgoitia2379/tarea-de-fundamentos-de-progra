@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main() {
     long long N;
     printf("Ingrese N: ");
