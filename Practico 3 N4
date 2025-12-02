@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    long long N;
+    printf("Ingrese N: ");
+    if (scanf("%lld", &N) != 1) return 1;
+    long long S = 0;
+    int sign = 1;
+    for (long long i = 1; i <= N; ++i) {
+        if (i % 2 == 1) S += i; else S -= i;
+    }
+    printf("S = %lld\n", S);
+    return 0;
+}

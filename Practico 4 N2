@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int N, Z = 0;
+
+    printf("Ingrese un numero entero: ");
+    scanf("%d", &N);
+
+    int temp = N;
+    while (temp > 0) {
+        Z = Z * 10 + temp % 10;
+        temp /= 10;
+    }
+
+    printf("El numero invertido de %d es: %d\n", N, Z);
+    return 0;
+}

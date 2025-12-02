@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    printf("Ingrese N (>=0): ");
+    if (scanf("%d", &N) != 1) return 1;
+    if (N < 0) { printf("N debe ser >= 0\n"); return 0; }
+    unsigned long long fac = 1;
+    for (int i = 2; i <= N; ++i) fac *= (unsigned long long)i;
+    printf("%d! = %llu\n", N, fac);
+    return 0;
+}

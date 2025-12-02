@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int esFechaValida(int d, int m, int y) {
+    if (m < 1 || m > 12 || d < 1) return 0;
+    int dias[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+    int bis = ( (y%4==0 && y%100!=0) || (y%400==0) );
+    if (bis) dias[2] = 29;
+    if (d > dias[m]) return 0;
+    return 1;
+}
+
+int main() {
+    int d, m, y;
+    printf("Ingrese fecha (dia mes año): ");
+    if (scanf("%d %d %d", &d, &m, &y) != 3) return 1;
+
+    if (!esFechaValida(d,m,y)) {
+        printf("Fecha invalida.\n");
+        return 0;
+    }
+
+    int key = m*100 + d; // ejemplo: 21/03 -> 321
+
+    if (key >= 321 && key <= 620) {
+        printf("Estacion: OTOÑO\n");
+    } else if (key >= 621 && key <= 920) {
+        printf("Estacion: INVIERNO\n");
+    } else if (key >= 921 && key <= 1220) {
+        printf("Estacion: PRIMAVERA\n");
+    } else {
+        // verano: 21/12 .. 31/12 y 01/01 .. 20/03
+        printf("Estacion: VERANO\n");
+    }
+    return 0;
+}

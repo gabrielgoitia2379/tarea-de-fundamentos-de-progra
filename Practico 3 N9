@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double X;
+    int n;
+    printf("Ingrese X (real) y n (entero >=1): ");
+    if (scanf("%lf %d", &X, &n) != 2) return 1;
+    if (n < 1) { printf("n debe ser >=1\n"); return 0; }
+
+    double S = 0.0;
+    double fact = 1.0;
+    for (int i = 1; i <= n; ++i) {
+        fact *= i;
+        double term = pow(X, i) / fact;
+        if (i % 2 == 0) S -= term; else S += term;
+    }
+    printf("S = %.10g\n", S);
+    return 0;
+}

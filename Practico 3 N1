@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    long long N;
+    printf("Ingrese N: ");
+    if (scanf("%lld", &N) != 1) return 1;
+    if (N < 1) {
+        printf("N debe ser >= 1\n");
+        return 0;
+    }
+    long long S = N * (N + 1) / 2;
+    printf("S = %lld\n", S);
+    return 0;
+}

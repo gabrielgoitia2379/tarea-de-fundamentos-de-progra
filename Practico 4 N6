@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    long N;
+    int digito, invalido = 0;
+
+    printf("Ingrese un numero en base 8: ");
+    scanf("%ld", &N);
+
+    long temp = N;
+    while (temp > 0) {
+        digito = temp % 10;
+        if (digito > 7) {
+            invalido = 1;
+            break;
+        }
+        temp /= 10;
+    }
+
+    if (invalido)
+        printf("El numero %ld NO corresponde a la base 8.\n", N);
+    else
+        printf("El numero %ld es valido en base 8.\n", N);
+
+    return 0;
+}

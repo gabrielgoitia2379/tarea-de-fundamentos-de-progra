@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int N, suma = 0, digito;
+
+    printf("Ingrese un numero entero: ");
+    scanf("%d", &N);
+
+    int temp = N;
+    while (temp > 0) {
+        digito = temp % 10;
+        suma += digito;
+        temp /= 10;
+    }
+
+    printf("La suma de los digitos de %d es: %d\n", N, suma);
+    return 0;
+}

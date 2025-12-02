@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <time.h>
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+
+int main() {
+    while (1) {
+        time_t t = time(NULL);
+        struct tm *tmv = localtime(&t);
+        if (!tmv) return 1;
+        int hh = tmv->tm_hour;
+        int mm = tmv->tm_min;
+        int ss = tmv->tm_sec;
+        printf("\r%02d:%02d:%02d", hh, mm, ss);
+        fflush(stdout);
+#ifdef _WIN32
+        Sleep(1000);
+#else
+        sleep(1);
+#endif
+    }
+    return 0;
+}

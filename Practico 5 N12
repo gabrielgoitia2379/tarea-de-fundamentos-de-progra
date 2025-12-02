@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    const int total_clases = 48;
+    const double limite_faltas = 0.20 * total_clases; // 9.6
+    char mas = 's';
+
+    while (mas == 's' || mas == 'S') {
+        double p1, p2, practico, final;
+        int faltas;
+
+        printf("\nIngrese nota Parcial 1 (0-100): ");
+        if (scanf("%lf", &p1) != 1) return 1;
+        printf("Ingrese nota Parcial 2 (0-100): ");
+        if (scanf("%lf", &p2) != 1) return 1;
+        printf("Ingrese nota Practico (0-100): ");
+        if (scanf("%lf", &practico) != 1) return 1;
+        printf("Ingrese nota Final (0-100): ");
+        if (scanf("%lf", &final) != 1) return 1;
+        printf("Ingrese numero de faltas: ");
+        if (scanf("%d", &faltas) != 1) return 1;
+
+        if (faltas > limite_faltas) {
+            printf("Faltas exceden 20%% de %d clases -> examen final anulado (queda 0)\n", total_clases);
+            final = 0.0;
+        }
+
+        double nf = (p1 * 0.20) + (p2 * 0.20) + (practico * 0.20) + (final * 0.40);
+        printf("Promedio final (NF) = %.2f\n", nf);
+        if (nf >= 51.0) printf("Resultado: APROBADO\n");
+        else printf("Resultado: REPROBADO\n");
+
+        printf("Desea calcular nota para otro alumno? (s/n): ");
+        if (scanf(" %c", &mas) != 1) break;
+    }
+
+    printf("Fin del programa.\n");
+    return 0;
+}

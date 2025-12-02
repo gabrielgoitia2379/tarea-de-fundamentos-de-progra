@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int q_ham, q_ham_q, q_papas;
+    int q_soda;
+    const double p_ham = 3.0;
+    const double p_hamq = 5.0;
+    const double p_papas = 2.0;
+    const double p_soda = 2.5;
+
+    printf("Cantidad Hamburguesas (Bs 3.00 c/u): ");
+    if (scanf("%d", &q_ham) != 1) return 1;
+    printf("Cantidad Hamburguesas con queso (Bs 5.00 c/u): ");
+    if (scanf("%d", &q_ham_q) != 1) return 1;
+    printf("Cantidad Papas fritas (Bs 2.00 c/u): ");
+    if (scanf("%d", &q_papas) != 1) return 1;
+    printf("Cantidad Soda (Bs 2.50 c/u): ");
+    if (scanf("%d", &q_soda) != 1) return 1;
+
+    double total_ham = q_ham * p_ham;
+    double total_hamq = q_ham_q * p_hamq;
+    double total_papas = q_papas * p_papas;
+    double total_soda = q_soda * p_soda;
+    double total = total_ham + total_hamq + total_papas + total_soda;
+
+    printf("\nITEM                         CANT    TOTAL PARCIAL\n");
+    printf("Hamburguesas (Bs 3.00)       %4d    %.2f\n", q_ham, total_ham);
+    printf("Hamburguesas c/ queso (5.00) %4d    %.2f\n", q_ham_q, total_hamq);
+    printf("Papas fritas (Bs 2.00)       %4d    %.2f\n", q_papas, total_papas);
+    printf("Soda (Bs 2.50)               %4d    %.2f\n", q_soda, total_soda);
+    printf("T O T A L                            %.2f\n", total);
+    return 0;
+}

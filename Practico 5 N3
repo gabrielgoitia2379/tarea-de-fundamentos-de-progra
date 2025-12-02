@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    printf("Ingrese un entero positivo N (0 <= N < 10000): ");
+    if (scanf("%d", &N) != 1) return 1;
+
+    if (N < 0 || N >= 10000) {
+        printf("Valor fuera de rango.\n");
+        return 0;
+    }
+
+    int u = N % 10;
+    int d = (N / 10) % 10;
+    int c = (N / 100) % 10;
+    int m = (N / 1000) % 10;
+
+    printf("Miles: %d\nCentenas: %d\nDecenas: %d\nUnidades: %d\n", m, c, d, u);
+    return 0;
+}

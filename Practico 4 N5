@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    long N, digito, resultado = 0, pos = 1;
+
+    printf("Ingrese un numero entero: ");
+    scanf("%ld", &N);
+
+    long temp = N;
+    while (temp > 0) {
+        digito = temp % 10;
+        resultado += (9 - digito) * pos;
+        pos *= 10;
+        temp /= 10;
+    }
+
+    printf("El complemento a 9 de %ld es: %ld\n", N, resultado);
+    return 0;
+}

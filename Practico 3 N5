@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    unsigned long long N;
+    printf("Ingrese N (<=20 recomendado por overflow): ");
+    if (scanf("%llu", &N) != 1) return 1;
+    if (N == 0) {
+        printf("Producto vacio (se interpreta como 1)\nP = 1\n");
+        return 0;
+    }
+    unsigned long long P = 1;
+    for (unsigned long long i = 1; i <= N; ++i) P *= i;
+    printf("P = %llu\n", P);
+    return 0;
+}

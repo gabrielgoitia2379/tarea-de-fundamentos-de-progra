@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+long long gcd(long long a, long long b) {
+    if (a < 0) a = -a;
+    if (b < 0) b = -b;
+    while (b != 0) {
+        long long r = a % b;
+        a = b;
+        b = r;
+    }
+    return a;
+}
+
+int main() {
+    long long a, b;
+    printf("Ingrese dos enteros: ");
+    if (scanf("%lld %lld", &a, &b) != 2) return 1;
+    if (a == 0 && b == 0) {
+        printf("MCD indefinido (ambos 0)\n");
+        return 0;
+    }
+    printf("MCD(%lld, %lld) = %lld\n", a, b, gcd(a, b));
+    return 0;
+}

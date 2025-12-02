@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double a, b, c;
+    printf("Ingrese a b c: ");
+    if (scanf("%lf %lf %lf", &a, &b, &c) != 3) return 1;
+
+    if (a == 0) {
+    
+        if (b == 0) {
+            if (c == 0) printf("Infinitas soluciones (0 = 0)\n");
+            else printf("No tiene solucion (contradiccion: %.2f = 0)\n", c);
+        } else {
+            double x = -c / b;
+            printf("Ecuacion lineal. Una solucion: x = %.6f\n", x);
+        }
+        return 0;
+    }
+
+    double D = b*b - 4*a*c;
+    if (D > 0) {
+        double x1 = (-b + sqrt(D)) / (2*a);
+        double x2 = (-b - sqrt(D)) / (2*a);
+        printf("Dos raices reales: x1 = %.6f, x2 = %.6f\n", x1, x2);
+    } else if (D == 0) {
+        double x = -b / (2*a);
+        printf("Raiz doble real: x = %.6f\n", x);
+    } else {
+    
+        double real = -b / (2*a);
+        double imag = sqrt(-D) / (2*a);
+        printf("Raices complejas:\n");
+        printf("x1 = %.6f + %.6fi\n", real, imag);
+        printf("x2 = %.6f - %.6fi\n", real, imag);
+    }
+    return 0;
+}

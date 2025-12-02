@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int opcion;
+    do {
+        printf("\nMenu - Calculo de areas\n");
+        printf("1. Cuadrado\n2. Circulo\n3. Triangulo\n4. Salir\n");
+        printf("Seleccione opcion: ");
+        if (scanf("%d", &opcion) != 1) return 1;
+
+        if (opcion == 1) {
+            double L;
+            printf("Lado del cuadrado: ");
+            scanf("%lf", &L);
+            printf("Area del cuadrado = %.6f\n", L * L);
+        } else if (opcion == 2) {
+            double R;
+            printf("Radio del circulo: ");
+            scanf("%lf", &R);
+            printf("Area del circulo = %.6f\n", M_PI * R * R);
+        } else if (opcion == 3) {
+            double B, H;
+            printf("Base del triangulo: ");
+            scanf("%lf", &B);
+            printf("Altura del triangulo: ");
+            scanf("%lf", &H);
+            printf("Area del triangulo = %.6f\n", (B * H) / 2.0);
+        } else if (opcion == 4) {
+            printf("Saliendo...\n");
+        } else {
+            printf("Opcion invalida.\n");
+        }
+    } while (opcion != 4);
+
+    return 0;
+}

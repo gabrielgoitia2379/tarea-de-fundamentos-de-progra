@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    long long N;
+    printf("Ingrese N: ");
+    if (scanf("%lld", &N) != 1) return 1;
+    if (N < 1) {
+        printf("N debe ser >= 1\n");
+        return 0;
+    }
+  
+    long long k = (N + 1) / 2;
+    long long S = k * k;
+    printf("Suma de impares = %lld\n", S);
+    return 0;
+}

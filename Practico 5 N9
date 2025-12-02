@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    double a,b,c,d,e,f;
+    printf("Ingrese a b c (primera ecuacion aX + bY = c): ");
+    if (scanf("%lf %lf %lf", &a, &b, &c) != 3) return 1;
+    printf("Ingrese d e f (segunda ecuacion dX + eY = f): ");
+    if (scanf("%lf %lf %lf", &d, &e & f) != 3) {
+        // Leer separado si anterior intento falla por coincidencia de & en Windows/compiladores
+        return 1;
+    }
+
+
+    double D = a*e - b*d;
+    double Dx = c*e - b*f;
+    double Dy = a*f - c*d;
+
+    if (fabs(D) > 1e-12) {
+        double X = Dx / D;
+        double Y = Dy / D;
+        printf("Solucion unica: X = %.6f, Y = %.6f\n", X, Y);
+        printf("Tipo: una solucion (sistema compatible determinado)\n");
+    } else {
+        
+        if (fabs(Dx) < 1e-12 && fabs(Dy) < 1e-12) {
+            printf("Infinitas soluciones (sistema compatible indeterminado)\n");
+            printf("Tipo: infinitas soluciones\n");
+        } else {
+            printf("No tiene solucion (sistema incompatible)\n");
+            printf("Tipo: ninguna solucion\n");
+        }
+    }
+    return 0;
+}

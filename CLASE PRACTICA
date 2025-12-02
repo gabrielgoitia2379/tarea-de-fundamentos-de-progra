@@ -1,0 +1,41 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+double totalDia(double precio, int cantidad) {
+    return precio * cantidad;
+}
+double totalSemana(double totalesDiarios[], int dias) {
+    double suma = 0;
+    for (int i = 0; i < dias; i++) {
+        suma += totalesDiarios[i];
+    }
+    return suma;
+}
+int main() {
+    const int DIAS = 7;
+    double precio;
+    int cantidad;
+    double totales[DIAS];
+
+    cout << fixed << setprecision(2);
+
+
+    for (int i = 0; i < DIAS; i++) {
+        cout << "Dia " << i + 1 << ":" << endl;
+        cout << "  Ingrese precio unitario: ";
+        cin >> precio;
+        cout << "  Ingrese cantidad vendida: ";
+        cin >> cantidad;
+
+        totales[i] = totalDia(precio, cantidad);
+        cout << "  Total del dia " << i + 1 << " = $" << totales[i] << endl << endl;
+    }
+
+
+    double totalSem = totalSemana(totales, DIAS);
+    cout << "=============================" << endl;
+    cout << "Total de ventas de la semana = $" << totalSem << endl;
+
+    return 0;
+}

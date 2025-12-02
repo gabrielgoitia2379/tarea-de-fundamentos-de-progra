@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int N, invertido = 0, temp;
+
+    printf("Ingrese un numero entero: ");
+    scanf("%d", &N);
+
+    temp = N;
+    while (temp > 0) {
+        invertido = invertido * 10 + temp % 10;
+        temp /= 10;
+    }
+
+    if (invertido == N)
+        printf("El numero %d es capicua.\n", N);
+    else
+        printf("El numero %d NO es capicua.\n", N);
+
+    return 0;
+}
